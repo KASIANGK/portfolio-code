@@ -10,7 +10,7 @@ import { useTheme } from '../../ThemeContext';
 
 import './Home.css'; 
 
-function Home({ selectedSlide, onSlideChange }) {
+function Home() {
   const { isLightMode } = useTheme();
   const videoRef = useRef(null);
   const navigate = useNavigate();
@@ -26,8 +26,8 @@ function Home({ selectedSlide, onSlideChange }) {
   }, [currentVideo]);
 
   useEffect(() => {
-    setSwiperKey((prevKey) => prevKey + 1); // Change la clé pour forcer la réinitialisation de Swiper lors de la première navigation
-  }, []);
+    setSwiperKey((prevKey) => prevKey + 1); // Change la clé pour forcer la réinitialisation de Swiper
+  }, []); // Exécute seulement lors du montage du composant
 
   const handleSlideChange = (swiper) => {
     console.log(swiper.activeIndex);
@@ -72,6 +72,7 @@ function Home({ selectedSlide, onSlideChange }) {
 }
 
 export default Home;
+
 
 
 

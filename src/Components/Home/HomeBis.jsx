@@ -14,7 +14,7 @@ const HomeBis = () => {
 
   // Fonction appelée lors du changement de slide
   const handleSlideChange = (swiper) => {
-    if (swiper.activeIndex === 0) { // Si l'utilisateur swipe vers la gauche pour revenir au premier slide
+    if (swiper.activeIndex === 1) { // Si l'utilisateur swipe vers la gauche pour revenir au premier slide
       navigate('/'); // Redirige vers la page principale (Home)
     }
   };
