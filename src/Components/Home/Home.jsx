@@ -37,7 +37,7 @@ function Home() {
   };
 
   return (
-    <div className={`home ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
+    <div className={`carousel-container ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
       <Swiper
         key={swiperKey}  // Utiliser une clé unique pour forcer le remount
         navigation
