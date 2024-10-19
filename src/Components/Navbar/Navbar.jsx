@@ -6,9 +6,10 @@ import logo from '../../assets/Sujet.png';
 // import ModeSwitcher from './ModeSwitcher/ModeSwitcher';
 import { gsap, Power1 } from 'gsap';
 import '../Navbar/ModeSwitcher/ModeSwitcher.css'
+import { useTheme } from '../../ThemeContext';
 
-
-function Navbar({ onToggleMode, isLightMode }) {
+function Navbar() {
+  const { isLightMode, toggleMode } = useTheme();
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
 
   const toggleLangMenu = () => {
@@ -57,6 +58,8 @@ function Navbar({ onToggleMode, isLightMode }) {
       <ul className="navbar-links">
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About</Link></li>
+        <li><Link to="/homebis">Home Bis</Link></li>
+
         <li><Link to="/portfolio">Portfolio</Link></li>
         <li><Link to="/contact">Contact</Link></li>
         <li className="navbar-lang">
@@ -73,7 +76,7 @@ function Navbar({ onToggleMode, isLightMode }) {
             <div id="background"></div>
 
             <div onClick={handleToggle} id={isDay ? "day" : "night"} className="switch-button">        
-              <button onClick={onToggleMode} className="mode-button invisble-button">
+              <button onClick={toggleMode} className="mode-button invisble-button">
                 {isLightMode ? '' : ''}
               </button></div>
             <div id="background"></div>

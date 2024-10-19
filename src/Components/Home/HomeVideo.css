@@ -1,12 +1,10 @@
 .home {
     width: 100%;
 }
-/* .carousel-container {
-    width: 100%;
-} */
 .main-video {
   width: 100%;
   padding-top: 5%;
+  /* height: 100%; */
   object-fit: cover;
 }
 .video-div {
@@ -112,11 +110,3 @@ body.light-mode button {
 body.light-mode button:hover {
   background-color: #e0e0e0; 
 }
-
-
-
-
-.swiper-slide {
-    width: 100% !important;
-}
-
