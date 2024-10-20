@@ -3,36 +3,48 @@ import React, { useEffect, useRef, useState } from 'react';
 import darkModeVideo from '../../assets/Automatic3.mp4';
 import lightModeVideo from '../../assets/Automatic.mp4';
 import './HomeVideo.css';
+import { useTheme } from '../../ThemeContext'; 
 
-function HomeVideo({ isLightMode }) {
-  const [currentVideo, setCurrentVideo] = useState();
+
+function HomeVideo() {
   const [videoTime, setVideoTime] = useState(0);
   const [loading, setLoading] = useState(false);
   const videoRef = useRef(null);
+  const { isLightMode } = useTheme();
 
+  const currentVideo = isLightMode ? lightModeVideo : darkModeVideo;
+
+  // Charger la vidéo à chaque changement de thème
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.currentTime = videoTime;
+      videoRef.current.load();
       videoRef.current.play();
-      setLoading(false);
     }
   }, [currentVideo]);
 
-  useEffect(() => {
-    if (videoRef.current) {
-      setVideoTime(videoRef.current.currentTime);
-      // currentTime propriete JS qui indique position de video ou audio
-      const newVideo = isLightMode ? lightModeVideo : darkModeVideo;
-      setCurrentVideo(newVideo);
-      setLoading(true);
-      videoRef.current.load();
-    }
-  }, [isLightMode]);
+
+  // useEffect(() => {
+  //   if (videoRef.current) {
+  //     videoRef.current.currentTime = videoTime;
+  //     videoRef.current.play();
+  //     setLoading(false);
+  //   }
+  // }, [currentVideo]);
+
+  // useEffect(() => {
+  //   if (videoRef.current) {
+  //     setVideoTime(videoRef.current.currentTime);
+  //     // currentTime propriete JS qui indique position de video ou audio
+  //     const newVideo = isLightMode ? lightModeVideo : darkModeVideo;
+  //     setCurrentVideo(newVideo);
+  //     setLoading(true);
+  //     videoRef.current.load();
+  //   }
+  // }, [isLightMode]);
 
 
 
   return (
-    <div className={`home ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
       <div className='video-div'>
         {loading && <div className="loading">Loading...</div>}
         <video
@@ -40,7 +52,6 @@ function HomeVideo({ isLightMode }) {
           className="main-video"
           autoPlay
           muted
-          loop
           onTimeUpdate={() => {
             if (videoRef.current) {
               setVideoTime(videoRef.current.currentTime);
@@ -51,7 +62,6 @@ function HomeVideo({ isLightMode }) {
           Votre navigateur ne supporte pas la balise vidéo.
         </video>
       </div>
-    </div>
   );
 }
 

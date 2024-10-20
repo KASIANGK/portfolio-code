@@ -8,9 +8,9 @@ import About from './Components/About/About';
 
 function App() {
   return (
-      <Router>
-        <ThemeProvider>
+    <ThemeProvider>
 
+      <Router>
           <Navbar />
           <Routes>
             <Route path="/" element={<Home  />} />
@@ -20,9 +20,9 @@ function App() {
             {/* <Route path="/" element={<Home selectedSlide={selectedSlide} onSlideChange={handleSlideChange} />} /> */}
             {/* <Route path="/homebis" element={<HomeBis selectedSlide={selectedSlide} onSlideChange={handleSlideChange} />} /> */}
           </Routes>
-        </ThemeProvider>
 
       </Router>
+      </ThemeProvider>
   );
 }
 
