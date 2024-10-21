@@ -57,10 +57,8 @@ function Navbar() {
       </div>
       <ul className="navbar-links">
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/homebis">Home Bis</Link></li>
-
         <li><Link to="/portfolio">Portfolio</Link></li>
+        <li><Link to="/about">About</Link></li>
         <li><Link to="/contact">Contact</Link></li>
         <li className="navbar-lang">
           <button onClick={toggleLangMenu} className="lang-button">🌍</button>
