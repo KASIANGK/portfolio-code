@@ -33,7 +33,7 @@ const Portfolio = () => {
 
   return (
     <div className={`portfolio ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
-      <div className="content-container">
+      <div>
         <Swiper
           direction="vertical"  // Change la direction vers "vertical"
           pagination={{ clickable: true }}
@@ -44,12 +44,12 @@ const Portfolio = () => {
           mousewheel={true} // Ajoute la gestion des gestes trackpad et molette
           cssMode={true} // Ajoute la compatibilité avec le scroll natif du navigateur
           modules={[Navigation, Pagination, Mousewheel]} // Ajouter Mousewheel ici
-          style={{ height: '100vh' }} 
+          // style={{ height: '100vh' }} 
         >
           <SwiperSlide>
-            <div className="video-container">
+            <div className="content-container">
               <video
-                className="main-video"
+                className="main-video video-hey"
                 autoPlay
                 muted
               >

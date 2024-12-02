@@ -15,8 +15,8 @@ function About() {
 
 
   return (
-    <div className={`portfolio ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
-      <div className="content-container">
+    <div className={`about ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
+      <div>
         <Swiper
           direction="vertical"  
           pagination={{ clickable: true }}
@@ -27,12 +27,12 @@ function About() {
           mousewheel={true} // Ajoute la gestion des gestes trackpad et molette
           cssMode={true} // Ajoute la compatibilité avec le scroll natif du navigateur
           modules={[Navigation, Pagination, Mousewheel]} // Ajouter Mousewheel ici
-          style={{ height: '100vh' }} 
+          // style={{ height: '100vh' }} 
         >
           <SwiperSlide>
-            <div className="video-container">
+            <div className="content-container">
               <video
-                className="main-video"
+                className="main-video video-about video-hey"
                 autoPlay
                 muted
               >

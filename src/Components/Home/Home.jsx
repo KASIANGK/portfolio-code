@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import SwiperMain from '../Swiper/SwiperMain';
 import Contact from '../Contact/Contact';
+import Footer from '../Footer/Footer'
 import './Home.css';
 import lightModee from '../../assets/transition-home.mp4';
 
@@ -46,9 +47,8 @@ function Home() {
   return (
     <div className="all">
       <SwiperMain />
-
-      
       <Contact />
+      <Footer></Footer>
     </div>
   );
 }
