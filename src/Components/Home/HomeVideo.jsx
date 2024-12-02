@@ -1,5 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import darkModeVideo from '../../assets/7.mp4';
+// import darkModeVideo from '../../assets/home.mp4';
+// import darkModeVideo from '../../assets/homeVideo.mp4';
+// import darkModeVideo from '../../assets/mainv.mp4';
+
 import lightModeVideo from '../../assets/Automatic.mp4';
 import './HomeVideo.css';
 import { useTheme } from '../../ThemeContext'; 

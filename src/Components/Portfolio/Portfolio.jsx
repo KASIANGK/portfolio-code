@@ -3,20 +3,20 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/mousewheel"; 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom'; 
 import { useTheme } from '../../ThemeContext'; 
 import './Portfolio.css';
 import lightModeVideo from '../../assets/transition-ah.mp4';
-
-
 import { Navigation, Pagination, Mousewheel } from 'swiper/modules'; 
 import PortfolioAll from './PortfolioAll';
+import teamHoverImage from '../../assets/about.png';  // Remplace par le bon nom et extension
+import playersHoverImage from '../../assets/about.png';  // Idem pour l'autre image
+
 
 const Portfolio = () => {
   const { isLightMode } = useTheme();
   const navigate = useNavigate();
   
-  // État pour l'effet lumineux
   const [isClicked, setIsClicked] = useState(false);
 
   const handleNavigateToHome = () => {
@@ -24,30 +24,45 @@ const Portfolio = () => {
   };
 
   const handleIconClick = () => {
-    setIsClicked(true); // Activer l'effet lumineux
+    setIsClicked(true); 
     setTimeout(() => {
-      setIsClicked(false); // Désactiver après 300 ms
-    }, 300); // Durée de l'effet lumineux
+      setIsClicked(false); 
+    }, 300); 
     handleNavigateToHome(); 
   };
 
+
+  
   return (
     <div className={`portfolio ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
       <div>
         <Swiper
-          direction="vertical"  // Change la direction vers "vertical"
+          direction="vertical" 
           pagination={{ clickable: true }}
           spaceBetween={7}
           slidesPerView={1}
-          allowTouchMove={true} // Active le swipe par trackpad et tactile
+          allowTouchMove={true}
           navigation={false} 
-          mousewheel={true} // Ajoute la gestion des gestes trackpad et molette
-          cssMode={true} // Ajoute la compatibilité avec le scroll natif du navigateur
-          modules={[Navigation, Pagination, Mousewheel]} // Ajouter Mousewheel ici
-          // style={{ height: '100vh' }} 
+          mousewheel={true} 
+          cssMode={true} 
+          modules={[Navigation, Pagination, Mousewheel]} 
         >
           <SwiperSlide>
             <div className="content-container">
+              <div className='btns-portfolio'>
+                <div className="buttons-container-first">
+                  <Link to="/team" className="portfolio-button"></Link>
+                  {/* <div className="hover-image-first">
+                    <img src={teamHoverImage} alt="Team Hover" />
+                  </div> */}
+                </div>
+                <div className="buttons-container-second">
+                  <Link to="/players" className="portfolio-button"></Link>
+                  {/* <div className="hover-image-second">
+                    <img src={playersHoverImage} alt="Players Hover" />
+                  </div> */}
+                </div>
+              </div>
               <video
                 className="main-video video-hey"
                 autoPlay
@@ -60,17 +75,7 @@ const Portfolio = () => {
           </SwiperSlide>
 
           <SwiperSlide>
-            {/* <div className=''>
-              <video
-              className="main-video"
-              autoPlay
-              muted
-              >
-              <source src={lightModeVideoo} type="video/mp4" />
-              Votre navigateur ne supporte pas la balise vidéo.
-              </video>
-            </div> */}
-            <PortfolioAll/>
+            <PortfolioAll />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -79,6 +84,176 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+
+
+
+
+
+// import React, { useState } from 'react';
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/css";
+// import "swiper/css/pagination";
+// import "swiper/css/mousewheel"; 
+// import { useNavigate, Link } from 'react-router-dom';  // Importation de Link
+// import { useTheme } from '../../ThemeContext'; 
+// import './Portfolio.css';
+// import lightModeVideo from '../../assets/transition-ah.mp4';
+// import { Navigation, Pagination, Mousewheel } from 'swiper/modules'; 
+// import PortfolioAll from './PortfolioAll';
+
+// const Portfolio = () => {
+//   const { isLightMode } = useTheme();
+//   const navigate = useNavigate();
+  
+//   // État pour l'effet lumineux
+//   const [isClicked, setIsClicked] = useState(false);
+
+//   const handleNavigateToHome = () => {
+//     navigate('/');
+//   };
+
+//   const handleIconClick = () => {
+//     setIsClicked(true); // Activer l'effet lumineux
+//     setTimeout(() => {
+//       setIsClicked(false); // Désactiver après 300 ms
+//     }, 300); // Durée de l'effet lumineux
+//     handleNavigateToHome(); 
+//   };
+
+//   return (
+//     <div className={`portfolio ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
+//       <div>
+//         <Swiper
+//           direction="vertical"  // Change la direction vers "vertical"
+//           pagination={{ clickable: true }}
+//           spaceBetween={7}
+//           slidesPerView={1}
+//           allowTouchMove={true} // Active le swipe par trackpad et tactile
+//           navigation={false} 
+//           mousewheel={true} // Ajoute la gestion des gestes trackpad et molette
+//           cssMode={true} // Ajoute la compatibilité avec le scroll natif du navigateur
+//           modules={[Navigation, Pagination, Mousewheel]} // Ajouter Mousewheel ici
+//         >
+//           <SwiperSlide>
+//             <div className="content-container">
+//               <div className='btns-portfolio'>
+//                 {/* Conteneur des boutons */}
+//                 <div className="buttons-container-first">
+//                   <Link to="/team" className="portfolio-button">Team</Link>
+//                 </div>
+//                 <div className="buttons-container-second">
+//                   <Link to="/players" className="portfolio-button">Players</Link>
+//                 </div>
+//               </div>
+//               <video
+//                 className="main-video video-hey"
+//                 autoPlay
+//                 muted
+//               >
+//                 <source src={lightModeVideo} type="video/mp4" />
+//                 Votre navigateur ne supporte pas la balise vidéo.
+//               </video>
+//             </div>
+//           </SwiperSlide>
+
+//           <SwiperSlide>
+//             <PortfolioAll/>
+//           </SwiperSlide>
+//         </Swiper>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Portfolio;
+
+
+
+
+
+
+
+// import React, { useState } from 'react';
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import "swiper/css";
+// import "swiper/css/pagination";
+// import "swiper/css/mousewheel"; 
+// import { useNavigate } from 'react-router-dom';
+// import { useTheme } from '../../ThemeContext'; 
+// import './Portfolio.css';
+// import lightModeVideo from '../../assets/transition-ah.mp4';
+
+
+// import { Navigation, Pagination, Mousewheel } from 'swiper/modules'; 
+// import PortfolioAll from './PortfolioAll';
+
+// const Portfolio = () => {
+//   const { isLightMode } = useTheme();
+//   const navigate = useNavigate();
+  
+//   // État pour l'effet lumineux
+//   const [isClicked, setIsClicked] = useState(false);
+
+//   const handleNavigateToHome = () => {
+//     navigate('/');
+//   };
+
+//   const handleIconClick = () => {
+//     setIsClicked(true); // Activer l'effet lumineux
+//     setTimeout(() => {
+//       setIsClicked(false); // Désactiver après 300 ms
+//     }, 300); // Durée de l'effet lumineux
+//     handleNavigateToHome(); 
+//   };
+
+//   return (
+//     <div className={`portfolio ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
+//       <div>
+//         <Swiper
+//           direction="vertical"  // Change la direction vers "vertical"
+//           pagination={{ clickable: true }}
+//           spaceBetween={7}
+//           slidesPerView={1}
+//           allowTouchMove={true} // Active le swipe par trackpad et tactile
+//           navigation={false} 
+//           mousewheel={true} // Ajoute la gestion des gestes trackpad et molette
+//           cssMode={true} // Ajoute la compatibilité avec le scroll natif du navigateur
+//           modules={[Navigation, Pagination, Mousewheel]} // Ajouter Mousewheel ici
+//           // style={{ height: '100vh' }} 
+//         >
+//           <SwiperSlide>
+//             <div className="content-container">
+//               <video
+//                 className="main-video video-hey"
+//                 autoPlay
+//                 muted
+//               >
+//                 <source src={lightModeVideo} type="video/mp4" />
+//                 Votre navigateur ne supporte pas la balise vidéo.
+//               </video>
+//             </div>
+//           </SwiperSlide>
+
+//           <SwiperSlide>
+//             {/* <div className=''>
+//               <video
+//               className="main-video"
+//               autoPlay
+//               muted
+//               >
+//               <source src={lightModeVideoo} type="video/mp4" />
+//               Votre navigateur ne supporte pas la balise vidéo.
+//               </video>
+//             </div> */}
+//             <PortfolioAll/>
+//           </SwiperSlide>
+//         </Swiper>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Portfolio;
 
 
 
