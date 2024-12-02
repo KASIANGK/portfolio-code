@@ -53,7 +53,7 @@ function Contact() {
     <div ref={sectionRef} className="contact-section">
       <video
         ref={videoRef}
-        className="main-video video-hey"
+        className="main-video video-hey video-ctc"
         muted
         playsInline
       >
