@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/mousewheel"; 
 import { Navigation, Pagination, Mousewheel } from 'swiper/modules'; 
+import Players from '../Players/Players';
 
 function About() {
   const [loading, setLoading] = useState(false);
@@ -44,10 +45,7 @@ function About() {
 
           <SwiperSlide>
             <div className="about-all">
-              <div>
-                <h1>Hey, I'm Kasia</h1>
-                <p>Blablabkabka</p>
-              </div>
+              <Players></Players>
             </div>
           </SwiperSlide>
         </Swiper>

@@ -5,6 +5,8 @@ import Navbar from './Components/Navbar/Navbar';
 import Home from './Components/Home/Home';
 import Portfolio from './Components/Portfolio/Portfolio';
 import About from './Components/About/About';
+import Team from './Components/Teams/Team';
+import Players from './Components/Players/Players';
 
 function App() {
   return (
@@ -13,9 +15,11 @@ function App() {
       <Router>
           <Navbar />
           <Routes>
-            <Route path="/home" element={<Home  />} />
+            <Route path="/" element={<Home  />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/about" element={<About />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/players" element={<Players />} />
 
             {/* <Route path="/" element={<Home selectedSlide={selectedSlide} onSlideChange={handleSlideChange} />} /> */}
             {/* <Route path="/homebis" element={<HomeBis selectedSlide={selectedSlide} onSlideChange={handleSlideChange} />} /> */}
