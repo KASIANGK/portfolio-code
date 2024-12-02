@@ -1,20 +1,93 @@
-import React from 'react';
-import './About.css';  
+import React, { useEffect, useRef, useState } from 'react';
+import lightModeVideooo from '../../assets/abb.mp4';
+
+import './About.css';
+import { useTheme } from '../../ThemeContext'; 
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/mousewheel"; 
+import { Navigation, Pagination, Mousewheel } from 'swiper/modules'; 
 
 function About() {
+  const [loading, setLoading] = useState(false);
+  const { isLightMode } = useTheme();
+
+
   return (
-    <div className='about'>
-        <h1 className='title'>Développeuse Web Créative avec une Expertise en Design et une Expérience Culturelle</h1>
-        <p className='description'> Je suis une développeuse web accomplie, maîtrisant des langages de programmation tels que JavaScript et Python. Mon parcours atypique, qui m’a menée de commerciale à graphiste puis à développeuse, m’a permis de fusionner compétences techniques et sensibilité artistique.
+    <div className={`portfolio ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
+      <div className="content-container">
+        <Swiper
+          direction="vertical"  
+          pagination={{ clickable: true }}
+          spaceBetween={7}
+          slidesPerView={1}
+          allowTouchMove={true} // Active le swipe par trackpad et tactile
+          navigation={false} 
+          mousewheel={true} // Ajoute la gestion des gestes trackpad et molette
+          cssMode={true} // Ajoute la compatibilité avec le scroll natif du navigateur
+          modules={[Navigation, Pagination, Mousewheel]} // Ajouter Mousewheel ici
+          style={{ height: '100vh' }} 
+        >
+          <SwiperSlide>
+            <div className="video-container">
+              <video
+                className="main-video"
+                autoPlay
+                muted
+              >
+                <source src={lightModeVideooo} type="video/mp4" />
+                Votre navigateur ne supporte pas la balise vidéo.
+              </video>
+            </div>
+          </SwiperSlide>
 
-        Avant de me tourner vers le développement web, j’ai exercé en tant que commerciale auprès de grandes maisons de luxe, une expérience qui m’a offert une vision approfondie des exigences du marché haut de gamme. Cette trajectoire m’a ensuite conduite à une carrière de graphiste et de visual merchandiser, affinant mon expertise en design visuel et ma créativité.
-
-        En parallèle, j’ai exploré divers domaines artistiques, allant de la couture à l’organisation de défilés de mode, en concevant des identités visuelles complètes. J’ai également réalisé des couvertures pour artistes et des clips vidéo. Ces expériences illustrent ma passion pour l’univers visuel et culturel.
-
-        Aujourd’hui, je mets à profit mon savoir-faire en UI/UX design pour créer des interfaces utilisateur à la fois fonctionnelles et esthétiques, utilisant avec aisance des outils comme Figma. Ma reconversion en développement web est le fruit de mon désir de concilier innovation technologique et expression artistique, en proposant des solutions à la fois créatives et efficaces.
-        </p>
+          <SwiperSlide>
+            <div className="about-all">
+              <div>
+                <h1>Hey, I'm Kasia</h1>
+                <p>Blablabkabka</p>
+              </div>
+            </div>
+          </SwiperSlide>
+        </Swiper>
+      </div>
     </div>
   );
 }
 
 export default About;
+
+
+// import React, { useEffect, useRef, useState } from 'react';
+// // import lightModeVideooo from '../../assets/about.mp4';
+// import lightModeVideooo from '../../assets/ab.mp4';
+
+// import './About.css';
+// import { useTheme } from '../../ThemeContext'; 
+
+
+// function About() {
+//   const [loading, setLoading] = useState(false);
+//   const { isLightMode } = useTheme();
+
+
+//   return (
+//     <div className={`home-homebis ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
+
+//         <div className=''>
+//             {loading && <div className="loading">Loading...</div>}
+//             <video
+//             className="main-video video-about"
+//             autoPlay
+//             muted
+//             >
+//             <source src={lightModeVideooo} type="video/mp4" />
+//             Votre navigateur ne supporte pas la balise vidéo.
+//             </video>
+//         </div>
+//     </div>
+//   );
+// }
+
+// export default About;

@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import logo from '../../assets/Sujet.png'; 
+import portfolio from '../../assets/folder.png'; 
+import about from '../../assets/about.png'; 
+import siri from '../../assets/siri.png'; 
+
+
 // import logoGif from '../../assets/waving.gif'; 
 // import ModeSwitcher from './ModeSwitcher/ModeSwitcher';
 import { gsap, Power1 } from 'gsap';
@@ -30,6 +35,13 @@ function Navbar() {
     setIsDay(newIsDay);
 
 
+
+    // for (let i = 0; i < infinity; i++) {
+    //   code(),
+    //   drinkCoffee(),
+    //   repeat()
+    // }
+
     if (newIsDay) {
       gsap.to("#sun", 1, { x: 15, opacity: 1, ease: Power1.easeInOut });
       gsap.to("#cloud", 1, { opacity: 1, ease: Power1.easeInOut });
@@ -53,15 +65,15 @@ function Navbar() {
         <Link to="/">
           <img src={logo} alt="Logo" className="navbar-logo-gif" />
         </Link>
-        <p>HEY :-)</p>
+        <p></p>
       </div>
       <ul className="navbar-links">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/portfolio">Portfolio</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
+        {/* <li><Link to="/">Home</Link></li> */}
+        <li><Link to="/portfolio"><img src={portfolio} alt="Portfolio" className="navbar-logo-gif" /></Link></li>
+        <li><Link to="/about"><img src={about} alt="About" className="navbar-logo-gif" /></Link></li>
+        {/* <li><Link to="/contact">Contact</Link></li> */}
         <li className="navbar-lang">
-          <button onClick={toggleLangMenu} className="lang-button">🌍</button>
+          <button onClick={toggleLangMenu} className="lang-button"><img src={siri} alt="Language" className="navbar-logo-gif" /></button>
           <div className={`lang-menu ${isLangMenuOpen ? 'open' : ''}`}>
             <p><a href="#">🇫🇷</a></p>
             <p><a href="#">🇬🇧</a></p>

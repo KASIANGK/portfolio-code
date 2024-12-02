@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/mousewheel"; // Importer le style de mousewheel
+import "swiper/css/mousewheel"; 
 import { useNavigate } from 'react-router-dom';
-import { useTheme } from '../../ThemeContext'; // Importer le hook
+import { useTheme } from '../../ThemeContext'; 
 import './Portfolio.css';
-import lightModeVideo from '../../assets/videotest.mp4';
-import { Navigation, Pagination, Mousewheel } from 'swiper/modules'; // Ajouter Mousewheel ici
+import lightModeVideo from '../../assets/transition-ah.mp4';
+
+
+import { Navigation, Pagination, Mousewheel } from 'swiper/modules'; 
+import PortfolioAll from './PortfolioAll';
 
 const Portfolio = () => {
   const { isLightMode } = useTheme();
@@ -17,7 +20,7 @@ const Portfolio = () => {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleNavigateToHome = () => {
-    navigate('/'); // Naviguer vers la page principale (Home)
+    navigate('/');
   };
 
   const handleIconClick = () => {
@@ -25,16 +28,16 @@ const Portfolio = () => {
     setTimeout(() => {
       setIsClicked(false); // Désactiver après 300 ms
     }, 300); // Durée de l'effet lumineux
-    handleNavigateToHome(); // Naviguer vers Home
+    handleNavigateToHome(); 
   };
 
   return (
-    <div className={`home-homebis ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
+    <div className={`portfolio ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
       <div className="content-container">
         <Swiper
           direction="vertical"  // Change la direction vers "vertical"
           pagination={{ clickable: true }}
-          spaceBetween={50}
+          spaceBetween={7}
           slidesPerView={1}
           allowTouchMove={true} // Active le swipe par trackpad et tactile
           navigation={false} 
@@ -57,10 +60,17 @@ const Portfolio = () => {
           </SwiperSlide>
 
           <SwiperSlide>
-            <div className="portfolio-content">
-              {/* Contenu du portfolio */}
-              Portfolio Content Goes Here
-            </div>
+            {/* <div className=''>
+              <video
+              className="main-video"
+              autoPlay
+              muted
+              >
+              <source src={lightModeVideoo} type="video/mp4" />
+              Votre navigateur ne supporte pas la balise vidéo.
+              </video>
+            </div> */}
+            <PortfolioAll/>
           </SwiperSlide>
         </Swiper>
       </div>

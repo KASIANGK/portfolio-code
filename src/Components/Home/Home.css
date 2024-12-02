@@ -1,3 +1,6 @@
+.all {
+  width: 100%;
+}
 .home {
     width: 100%;
 }
@@ -164,4 +167,12 @@ body.light-mode button:hover {
 
 .swiper {
   height: 850px;
+}
+
+.swiper-slide {
+  height: 100%; /* Chaque slide prend 100% de la hauteur du swiper */
+}
+.swiper-slide div {
+  max-height: 100%;
+  overflow: hidden; /* Ou "scroll" si tu veux permettre un défilement interne */
 }

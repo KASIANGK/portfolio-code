@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-// import darkModeVideo from '../../assets/webDev.mp4';
-import darkModeVideo from '../../assets/Automatic3.mp4';
+import darkModeVideo from '../../assets/7.mp4';
 import lightModeVideo from '../../assets/Automatic.mp4';
 import './HomeVideo.css';
 import { useTheme } from '../../ThemeContext'; 
@@ -23,33 +22,12 @@ function HomeVideo() {
   }, [currentVideo]);
 
 
-  // useEffect(() => {
-  //   if (videoRef.current) {
-  //     videoRef.current.currentTime = videoTime;
-  //     videoRef.current.play();
-  //     setLoading(false);
-  //   }
-  // }, [currentVideo]);
-
-  // useEffect(() => {
-  //   if (videoRef.current) {
-  //     setVideoTime(videoRef.current.currentTime);
-  //     // currentTime propriete JS qui indique position de video ou audio
-  //     const newVideo = isLightMode ? lightModeVideo : darkModeVideo;
-  //     setCurrentVideo(newVideo);
-  //     setLoading(true);
-  //     videoRef.current.load();
-  //   }
-  // }, [isLightMode]);
-
-
-
   return (
-      <div className='video-div'>
+      <div className='content-container'>
         {loading && <div className="loading">Loading...</div>}
         <video
           ref={videoRef}
-          className="main-video"
+          className="main-video video-hey"
           autoPlay
           muted
           onTimeUpdate={() => {
